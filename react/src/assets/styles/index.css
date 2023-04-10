@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --gold-color: #ebbc65;
+    --gray-color: #abb2b2;
+    --gray-color-2: #9da2ad;
+    --blue-color: #123c84;
+    --dark-color: black;
+    --primary-color: #7380ec;
+    --danger-color: #ff7782;
+    --light-color: #cecece8c;
+    --info-dark-color: #7d8da1;
+    --background-color: #f6f6f9;
+    --background-color-2: #f5f2ee;
+}
+
+body {
+    /*  font-family: 'Crimson Text',
+ serif; */
+    font-family: 'Nunito Sans', sans-serif, 'Poppins', sans-serif;
+
+}
+
+hr.horizontal-line {
+    width: 60%;
+    border-top-width: 0.1rem;
+    margin: 2.5rem auto 2.5rem auto;
+    color: #ccc
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+
+.vertical-line {
+    position: relative;
+    height: 50px;
+    margin: 0 auto 2.0rem auto;
+
+}
+
+.vertical-line span {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: #ccc;
+    left: 50%;
+
+
+}
+
+.hover-color-blue,
+.hover-color-gold {
+    transition: color 0.15s ease-in;
+}
+
+.hover-color-gold:hover {
+    color: var(--gold-color);
+    border-color: var(--gold-color);
+}
+
+.hover-color-blue:hover {
+    color: var(--blue-color);
+}
+
+.logo-title {
+    letter-spacing: .1rem;
+    word-spacing: .2rem;
+    font-weight: 900;
+
+}
+
+
+
+
+.logo-title .second {
+    color: var(--gold-color) !important;
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.208);
+
+    z-index: 5;
+}
+
+.overlay.show {
+    height: 100vh;
+}
+
+.close-btn {
+    font-size: 2.3rem;
+}

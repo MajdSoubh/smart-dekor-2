@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+
+.admin {
+    background-color: white !important;
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    grid-template-columns: 14rem auto;
+    margin: 1rem 0 0 1rem;
+
+
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    z-index: 5;
+    min-height: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 200ms ease;
+    background-color: white;
+    box-shadow: 0.125rem 2.5rem .25rem rgba(0, 0, 0, .075) !important;
+
+
+}
+
+aside .top {
+    display: flex;
+
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+
+    height: 10vh;
+}
+
+aside .top .close-btn {
+    display: none;
+    font-size: 2.2rem;
+    margin-right: 1rem;
+}
+
+aside .top h2 {
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+
+aside .top .logo {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+aside .top .logo img {
+    width: 2rem;
+    margin-left: 1rem;
+}
+
+
+
+aside a {
+    text-decoration: none;
+
+}
+
+/* sidebar */
+
+aside .sidebar {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: start;
+    min-height: 100%;
+}
+
+aside .sidebar a h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+aside .sidebar .list-item i {
+    font-size: 1.3rem;
+    transition: all 200ms ease;
+}
+
+aside .sidebar .list-item:hover {
+    color: var(--primary-color);
+}
+
+
+
+aside .sidebar .list-item {
+    display: flex;
+
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+    position: relative;
+    height: 3.7rem;
+    transition: all 200ms ease;
+    color: var(--info-dark-color)
+}
+
+aside .sidebar .list-item:last-child {
+    margin-top: 12rem;
+}
+
+aside .sidebar .list-item.active {
+    margin-left: 0;
+    background-color: var(--light-color);
+    color: var(--primary-color)
+}
+
+aside .sidebar .list-item.active i {
+
+    margin-left: calc(2rem - (1rem + 6px))
+}
+
+aside .sidebar .list-item.active::before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+aside .sidebar .list-item:hover i {
+    margin-left: 1rem;
+}
+
+
+/* nav ------------------------------------------- */
+.admin nav {
+    position: fixed;
+    width: calc(100% - 15rem);
+    top: 0;
+    right: 0;
+    z-index: 3;
+    height: 3.5rem;
+
+    background-color: white;
+}
+
+.admin nav .nav-list {
+    display: flex;
+    height: 100%;
+    gap: .5rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.admin nav .list-item {
+    padding: 0 .5rem;
+    cursor: pointer;
+}
+
+.admin nav .nav-list .expand-btn {
+    display: none;
+    position: absolute;
+    left: 0;
+
+
+}
+
+/* main */
+
+.admin main {
+    margin-top: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+
+/* media screen ----------------------------------- */
+@media screen and (max-width:1200px) {
+    .admin {
+
+        grid-template-columns: 7rem auto;
+    }
+
+    .admin aside .logo h2 {
+        display: none;
+    }
+
+    .admin .sidebar .list-item {
+        width: 5.6rem;
+    }
+
+    .admin .sidebar .list-item h3 {
+        display: none;
+    }
+
+    .admin nav {
+        width: calc(100% - 8rem);
+    }
+
+
+}
+
+/* media screen mobile */
+@media screen and (max-width:768px) {
+    .admin {
+        margin: 0;
+        display: block;
+    }
+
+    .admin aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+
+
+        box-shadow: 1rem 3rem 4rem var(--light-color);
+    }
+
+    .admin aside.expand {
+        width: 18rem;
+    }
+
+    .admin .sidebar .list-item {
+        width: 100%;
+        height: 3.4rem;
+
+    }
+
+    .admin .sidebar .list-item h3 {
+        display: block;
+    }
+
+    .admin aside .top .logo h2 {
+        display: block;
+    }
+
+    .admin aside .top .close-btn {
+        display: block;
+        cursor: pointer;
+    }
+
+
+
+    .admin nav {
+        width: 100%;
+    }
+
+    .admin nav .nav-list .expand-btn {
+        display: block;
+    }
+
+    .admin main {
+        margin-top: 4.5rem;
+    }
+}

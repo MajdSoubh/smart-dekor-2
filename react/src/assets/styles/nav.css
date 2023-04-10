@@ -1,0 +1,163 @@
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    height: 3rem;
+    width: 100%;
+}
+
+nav .header {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1.3rem;
+}
+
+
+
+
+
+nav.expand .mobile {
+    width: 100vw;
+
+}
+
+@media (min-width: 768px) {
+
+    nav.expand .mobile {
+        width: 50vw;
+
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    nav.expand .mobile {
+        width: 30vw;
+
+    }
+
+}
+
+
+nav .mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: var(--background-color-2);
+    transition: width .2s ease-in;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+nav .mobile .logo-img {
+    width: 50%;
+    min-width: 14rem;
+    display: block;
+    margin: 0 auto 3rem auto;
+}
+
+nav .mobile .m-list {
+    padding: 0;
+    color: #050505ab;
+    margin: 0;
+    flex-direction: column;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+
+}
+
+nav .mobile .m-list li {
+    padding: 1rem;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.3rem;
+    min-width: max-content;
+
+
+
+}
+
+
+.toggler-btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: inherit;
+}
+
+
+.toggler-btn span {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-50%);
+    left: 0;
+    border: 1px solid var(--gray-color);
+    border-radius: 20%;
+
+}
+
+.toggler-btn:hover span {
+    border-color: var(--gold-color)
+}
+
+
+.toggler-btn span:nth-child(1) {
+    top: 20%;
+}
+
+.toggler-btn span:nth-child(2) {
+    top: 50%;
+}
+
+.toggler-btn span:nth-child(3) {
+    top: 80%;
+}
+
+
+
+
+nav .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 1.3rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 1.3rem;
+}
+
+nav .social-media a {
+    font-size: 1.3rem;
+    color: #050505ab;
+}
+
+nav .social-media a:hover {
+    color: var(--blue-color)
+}
+
+nav .nav-logo-title {
+    text-align: center;
+    font-size: 1.3rem;
+    min-width: max-content;
+}
+
+nav .nav-logo-title .first {
+    color: #0c569c;
+    text-align: center;
+    font-size: 1.3rem;
+    min-width: max-content;
+}
