@@ -53,7 +53,7 @@ const adminDefaultLayout = () => {
                             className="list-item"
                             to="/admin/projects"
                         >
-                            <i className="bi bi-grid-fill"></i>
+                            <i className="bi bi-grid-fill fs-3"></i>
                             <h3>Projects</h3>
                         </NavLink>
                         <NavLink
@@ -70,8 +70,17 @@ const adminDefaultLayout = () => {
                             className="list-item"
                             to="/admin/contact"
                         >
-                            <i className="bi bi-person-fill fs-3"></i>
+                            {" "}
+                            <i className="bi bi-info-circle-fill fs-3"></i>
                             <h3>Contact</h3>
+                        </NavLink>
+                        <NavLink
+                            onClick={toggelSidebar}
+                            className="list-item"
+                            to="/admin/account"
+                        >
+                            <i className="bi bi-person-fill fs-3"></i>
+                            <h3>Account</h3>
                         </NavLink>
                         <a onClick={handleLogout} className="list-item" href="">
                             <i className="bi bi-box-arrow-right fs-3"></i>

@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import Footer from "./footer";
+
 import http from "../httpClient";
 class Projects extends Component {
     state = {
         projects: [],
         categories: [],
         selectedCategory: "",
-        imageView: false,
         isLoading: true,
     };
     categoryListRef = React.createRef();
-    imageViewRef = React.createRef();
     async componentDidMount() {
         const { data: projects } = await http.get("project");
         const { data: categories } = await http.get("category");
@@ -39,12 +37,6 @@ class Projects extends Component {
             </div>
         );
     }
-    handleImageView = () => {
-        const view = !this.state.imageView;
-        this.setState({ imageView: view });
-        if (!view) return null;
-        this.imageViewRef.current.innerText = <h1>helellele</h1>;
-    };
     handleSelectCategory = (category) => {
         this.categoryListRef.current
             ? this.categoryListRef.current.classList.remove("expand")
@@ -188,7 +180,6 @@ class Projects extends Component {
                         );
                     })}
                 </div>
-                <div ref={this.imageViewRef} className="image-view"></div>
             </div>
         );
     }

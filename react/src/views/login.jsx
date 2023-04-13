@@ -20,6 +20,9 @@ class Login extends Form {
         const { setToken, setUser } = this.context;
         try {
             const { data } = await http.post("/login", payload);
+            if (data.message) {
+                this.setState({ message: data.message });
+            }
             setToken(data.token);
             setUser(data.user);
         } catch (ex) {
@@ -31,6 +34,7 @@ class Login extends Form {
         }
     };
     render() {
+        const { message } = this.state;
         return (
             <div id="guest">
                 <div className="   guest-form ">
@@ -40,8 +44,16 @@ class Login extends Form {
                         onSubmit={this.handleSubmit}
                         action=""
                     >
+                        {message && (
+                            <div className="alert alert-danger ">{message}</div>
+                        )}
                         {this.renderInput("Email", "email")}
-                        {this.renderInput("Password", "password", "password")}
+                        {this.renderInput(
+                            "Password",
+                            "password",
+                            null,
+                            "password"
+                        )}
 
                         {this.renderButton("Login", "btn-primary", {
                             width: "100%",

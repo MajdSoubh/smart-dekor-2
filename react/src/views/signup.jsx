@@ -14,6 +14,7 @@ class Signup extends Form {
     state = {
         data: { name: "", email: "", password: "" },
         errors: {},
+        message: "",
     };
 
     doSubmit = async () => {
@@ -21,7 +22,9 @@ class Signup extends Form {
         const payload = { ...this.state.data };
         try {
             const { data } = await http.post("/signup", payload);
-
+            if (data.message) {
+                this.setState({ message: data.message });
+            }
             setToken(data.token);
             setUser(data.user);
         } catch (ex) {
@@ -33,6 +36,7 @@ class Signup extends Form {
         }
     };
     render() {
+        const { message } = this.state;
         return (
             <div id="guest">
                 <div className="guest-form">
@@ -42,6 +46,9 @@ class Signup extends Form {
                         onSubmit={this.handleSubmit}
                         action=""
                     >
+                        {message && (
+                            <div className="alert alert-danger ">{message}</div>
+                        )}
                         {this.renderInput("Full Name", "name")}
 
                         {this.renderInput("Email", "email")}

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
-
-use App\Http\Requests\SignupRequest;
+use App\Http\Requests\User\LoginRequest;
+use App\Http\Requests\User\SignupRequest;
+use App\Http\Requests\User\ModifyRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -35,7 +36,22 @@ class AuthController extends Controller
         $token =   $user->createToken('main')->plainTextToken;
         return response(['user' => $user->name, 'token' => $token]);
     }
-    public function logout(Request $request)
+    public function modify(ModifyRequest $request)
+    {
+
+        $user = User::first();
+
+        $check = Hash::check($request->password, $user->password);
+        if (!$check)
+        {
+            return response(['message' => 'Invalid credential']);
+        }
+
+        $user->password = bcrypt($request['newPassword']);
+        $user->save();
+        return response($user, 200);
+    }
+    public function logout()
     {
         if (!auth("sanctum")->user())
         {

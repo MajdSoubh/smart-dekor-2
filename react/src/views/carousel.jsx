@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { useRef } from "react";
 
-/* import Project from "./project.jsx";
-import projectOne from "../assets/images/project-1.jpg";
-import projectTwo from "../assets/images/project-2.jpg";
-import projectThree from "../assets/images/project-3.jpg";
-import projectFour from "../assets/images/project-4.jpg";
-import projectFive from "../assets/images/project-5.jpg";
-import projectSechs from "../assets/images/project-6.jpg";
-import projectSeven from "../assets/images/project-7.jpg";
-import projectEight from "../assets/images/project-8.jpg"; */
 import { useEffect } from "react";
 
 const Carousel = ({ projects }) => {
@@ -38,7 +29,7 @@ const Carousel = ({ projects }) => {
             isDragging = true;
             e.preventDefault();
             posDiff = (e.pageX || e.touches[0].pageX) - prePageX;
-            carouselRef.current.scrollLeft = preCarouselScroll + posDiff;
+            carouselRef.current.scrollLeft = preCarouselScroll - posDiff;
         };
         const dragStop = () => {
             isDragStart = false;

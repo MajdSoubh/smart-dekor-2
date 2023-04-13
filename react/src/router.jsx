@@ -17,6 +17,7 @@ import ProjectForm from "./views/admin/projectForm";
 import CategoryForm from "./views/admin/categoryForm";
 import HeaderForm from "./views/admin/headerForm";
 import ContactForm from "./views/admin/contactForm";
+import AccountForm from "./views/admin/AccountForm";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         element: <AdminDefaultLayout />,
         children: [
             { path: "/admin", element: <Navigate to="/admin/header" /> },
+            {
+                path: "/admin/account",
+                element: <AccountForm />,
+            },
             { path: "/admin/contact", element: <ContactForm /> },
             { path: "/admin/projects", element: <AdminProjects /> },
             { path: "/admin/project/add", element: <ProjectForm /> },

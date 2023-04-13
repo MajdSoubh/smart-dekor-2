@@ -86,11 +86,19 @@ class Form extends Component {
             </button>
         );
     };
-    renderInput(label, name, type = "text", className = null, events) {
+    renderInput(
+        label,
+        name,
+        hint = null,
+        type = "text",
+        className = null,
+        events
+    ) {
         return (
             <Input
                 label={label}
                 name={name}
+                hint={hint}
                 type={type}
                 {...events}
                 className={className}
@@ -116,7 +124,14 @@ class Form extends Component {
         );
     }
 
-    renderTextarea(label, name, rows = 3, cols = 3, className = null) {
+    renderTextarea(
+        label,
+        name,
+        rows = 3,
+        cols = 3,
+        hint = null,
+        className = null
+    ) {
         return (
             <TextArea
                 label={label}

@@ -72,16 +72,19 @@ class ContactForm extends Form {
                             {this.renderInput("Phone", "phone")}
                             {this.renderInput("Address", "address")}
                             {this.renderInput(
-                                "Whatsapp   exa :   wa.me/number",
-                                "whatsapp"
+                                "Whatsapp",
+                                "whatsapp",
+                                "Whatsapp   exa :   wa.me/number"
                             )}
                             {this.renderInput(
-                                "Facebook   exa :   facebook/page-name",
-                                "facebook"
+                                "Facebook",
+                                "facebook",
+                                "Facebook   exa :   facebook/page-name"
                             )}
                             {this.renderInput(
-                                "Instagram   exa :   instagram/page-name",
-                                "instagram"
+                                "Instagram",
+                                "instagram",
+                                "Instagram   exa :   instagram/page-name"
                             )}
 
                             {this.renderButton("Save", "btn-success", null, {

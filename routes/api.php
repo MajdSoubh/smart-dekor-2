@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\HeaderController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ImageController;
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -42,15 +44,17 @@ Route::middleware("auth:sanctum")->group(function ()
     Route::delete('/project/{id}', [ProjectController::class, "delete"]);
 });
 
+Route::get('/category', [CategoryController::class, "all"]);
+Route::put('/user/update', [AuthController::class, "modify"]);
+Route::get('/header', [HeaderController::class, "all"]);
 
 Route::post('/signup', [AuthController::class, "signup"]);
 Route::post('/login', [AuthController::class, "login"]);
 
 Route::get('/contact', [ContactController::class, "all"]);
 
-Route::get('/header', [HeaderController::class, "all"]);
 
-Route::get('/category', [CategoryController::class, "all"]);
+
 
 Route::get('/category/{id}', [CategoryController::class, "show"]);
 
@@ -62,4 +66,8 @@ Route::get('/image/{path}', [ImageController::class, "get"]);
 Route::get('/i', function (Request $request)
 {
     return $request->header();
+});
+Route::get('/storage-link', function ()
+{
+    return Artisan::call('storage:link');
 });
